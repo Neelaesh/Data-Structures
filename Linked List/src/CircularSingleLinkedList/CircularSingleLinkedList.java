@@ -53,12 +53,12 @@ public class CircularSingleLinkedList {
 			head = node; // Set head reference to newly created node
 			tail.setNext(node); // Set tail node reference to newly created node
 		}
-		else if(location > getSize()) {
+		else if(location >= getSize()) { // Check if node location equals last
 			node.setNext(head); // Set newly created node reference to the first node
 			tail.setNext(node); // Set tail node reference to newly created node
 			tail = node; // Set tail reference to newly created reference
 		}
-		else {
+		else { // Check if node location is in between nodes
 			SingleNode currentNode = head;
 			SingleNode prevNode = null;
 			for(int i = 0; i < location-1; i++) {
@@ -154,6 +154,7 @@ public class CircularSingleLinkedList {
 		head = null;
 		tail.setNext(null);
 		tail = null;
+		setSize(0);
 	}
 	
 	// Swapping Head and Tail Node Values
@@ -166,7 +167,7 @@ public class CircularSingleLinkedList {
 		}
 		// Set Last node's reference to the Node after First Node
 		tempNode.getNext().setNext(head.getNext());
-		// Set Head's reference to the Last Node
+		// Set Head's reference to the Last Node (since circular linked list)
 		head.setNext(tempNode.getNext());
 		// Set Second last node's reference to Head / First Node
 		tempNode.setNext(head);

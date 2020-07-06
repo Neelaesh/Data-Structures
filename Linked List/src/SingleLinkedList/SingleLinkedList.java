@@ -163,6 +163,7 @@ public class SingleLinkedList {
 	public void deleteEntireLinkedList() {
 		head = null;
 		tail = null;
+		setSize(0);
 	}
 	
 }
